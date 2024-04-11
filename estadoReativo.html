@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- Carrega o React, React Dom e Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- 
+  - permite ser usados em brownsers antigos;
+  - tranforma o jsx em js -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Button() {
+      // estado reativo
+      const [total, setTotal] = React.useState(0)
+      return <button onClick={() => setTotal(total + 1)}>Adicionar {total}</button>
+    }
+
+    function App() {
+      return <div>
+        <h1>Testando o React com estado reativo</h1>
+        <Button />
+      </div>
+    }
+
+    // usado uma única vez para expor a function na tela
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App />)  
+  </script>
+
+</body>
+
+</html>
